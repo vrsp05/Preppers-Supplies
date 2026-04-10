@@ -78,7 +78,7 @@ function App() {
 
       {/* --- Section 3: Productos (Catálogo) --- */}
       <section id="productos" className="min-h-screen py-24 bg-white px-6">
-        <div className="max-w-7xl mx-auto">
+        <div className="w-full max-w-[95%] mx-auto">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 border-b border-gray-100 pb-8">
             <div>
               <h2 className="text-4xl font-bold text-gray-900 tracking-tight">Catálogo de Productos</h2>
