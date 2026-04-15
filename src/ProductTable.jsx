@@ -19,12 +19,22 @@ export default function ProductTable({ data }) {
     { header: 'Referencia', accessorKey: 'reference' },
     { 
       header: 'Estado', 
-      accessorKey: 'stock',
-      cell: (info) => (
-        <span className={`font-bold ${info.getValue() === 'Disponible' ? 'text-green-600' : 'text-red-500'}`}>
-          {info.getValue() || 'Consultar'}
-        </span>
-      )
+      accessorKey: 'availability',
+      cell: (info) => {
+        const value = info.getValue();
+        let displayText = 'Consultar';
+        let colorClass = 'text-blue-600';
+        
+        if (value === 'In Stock') {
+          displayText = 'Disponible';
+          colorClass = 'text-green-600';
+        } else if (value === 'Out of Stock') {
+          displayText = 'Agotado';
+          colorClass = 'text-red-500';
+        }
+        
+        return <span className={`font-bold ${colorClass}`}>{displayText}</span>;
+      }
     },
   ], []);
 
