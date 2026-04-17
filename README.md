@@ -1,12 +1,12 @@
-# Trustworthy Medical Supplies
+# Prepper's Medical Warehouse
 
-Welcome to the digital platform of **Trustworthy Medical Supplies**, an innovative project designed to facilitate access to high-quality medical products.
+Welcome to **Prepper's Medical Warehouse**, a modern web application designed to facilitate access to and management of medical supplies.
 
-> If you want to see the real website, [click here](https://sumin-med-de-conf.netlify.app/)
+> **Website**: [Coming Soon](#)
 
 ## Project Description
 
-This web application was specially developed for my father-in-law, an outstanding healthcare professional committed to providing excellent medical supply solutions for healthcare institutions and medical professionals. The platform offers:
+This web application provides a comprehensive platform for browsing, managing, and ordering medical supplies. The platform offers:
 
 - **Product Catalog**: An interactive and comprehensive table of medical supplies with detailed information for each item
 - **Contact Form**: Integrated contact system for inquiries, orders, and personalized attention
@@ -39,15 +39,12 @@ The project integrates external services for critical functionalities:
 
 ## License
 
-All rights reserved © 2026 Medical Supplies of Confidence.
+All rights reserved © 2026 Prepper's Medical Warehouse
 
 ## Contact & Credits
-
-**Website Created For:**  
-My father-in-law  
 
 **Developed By:**  
 [Victor Santana](https://github.com/vrsp05)
 
 **With Assistance From:**  
-GitHub Copilot (Claude Sonnet 4.5)  
+GitHub Copilot (Claude Haiku 4.5)  
