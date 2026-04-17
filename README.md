@@ -1,4 +1,4 @@
-# Trustworth Medical Supplies
+# Trustworthy Medical Supplies
 
 Welcome to the digital platform of **Trustworthy Medical Supplies**, an innovative project designed to facilitate access to high-quality medical products.
 
