@@ -9,11 +9,11 @@ export default function ContactForm() {
 
   const validateForm = () => {
     const errors = {};
-    if (!formData.name.trim()) errors.name = "El nombre completo es requerido";
-    if (!formData.subject.trim()) errors.subject = "Hospital/Empresa es requerido";
-    if (!formData.email.trim()) errors.email = "El correo electrónico es requerido";
-    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) errors.email = "Por favor ingresa un correo válido";
-    if (!formData.message.trim()) errors.message = "El mensaje/pedido es requerido";
+    if (!formData.name.trim()) errors.name = "Full name is required";
+    if (!formData.subject.trim()) errors.subject = "Organization/Company is required";
+    if (!formData.email.trim()) errors.email = "Email address is required";
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) errors.email = "Please enter a valid email";
+    if (!formData.message.trim()) errors.message = "Your request/requirements are required";
     
     setValidationErrors(errors);
     return Object.keys(errors).length === 0;
@@ -41,7 +41,7 @@ export default function ContactForm() {
       return;
     }
 
-    setResult("Enviando...");
+    setResult("Sending...");
     const submitFormData = new FormData();
     submitFormData.append("access_key", import.meta.env.VITE_ACCESS_KEY);
     submitFormData.append("name", formData.name);
@@ -58,7 +58,7 @@ export default function ContactForm() {
       const data = await response.json();
 
       if (data.success) {
-        setResult("¡Mensaje enviado con éxito! Nos pondremos en contacto dentro de 1 a 3 días hábiles.");
+        setResult("Message sent successfully! We'll be in touch within 1-3 business days.");
         setFormData({ name: "", subject: "", email: "", message: "" });
         setAgreedToTerms(false);
         setShowModal(false);
@@ -68,7 +68,7 @@ export default function ContactForm() {
       }
     } catch (error) {
       console.error("Error:", error);
-      setResult("Error al enviar el mensaje");
+      setResult("Error sending message");
     }
   };
 
@@ -76,54 +76,54 @@ export default function ContactForm() {
     <>
       <form onSubmit={handleSubmitClick} className="space-y-4">
         <div>
-          <label className="block text-sm font-medium text-gray-700">Nombre Completo</label>
+          <label className="block text-sm font-medium text-gray-700">Full Name</label>
           <input 
             type="text" 
             name="name" 
             value={formData.name}
             onChange={handleInputChange}
-            className={`mt-1 block w-full rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500 p-2 border text-gray-900 bg-white ${validationErrors.name ? 'border-red-500' : 'border-gray-300'}`} 
+            className={`mt-1 block w-full rounded-md shadow-sm focus:border-green-500 focus:ring-green-500 p-2 border text-gray-900 bg-white ${validationErrors.name ? 'border-red-500' : 'border-gray-300'}`} 
           />
           {validationErrors.name && <p className="text-red-500 text-sm mt-1">{validationErrors.name}</p>}
         </div>
         <div>
-          <label className="block text-sm font-medium text-gray-700">Hospital / Empresa</label>
+          <label className="block text-sm font-medium text-gray-700">Organization / Company</label>
           <input 
             type="text" 
             name="subject" 
             value={formData.subject}
             onChange={handleInputChange}
-            className={`mt-1 block w-full rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500 p-2 border text-gray-900 bg-white ${validationErrors.subject ? 'border-red-500' : 'border-gray-300'}`} 
+            className={`mt-1 block w-full rounded-md shadow-sm focus:border-green-500 focus:ring-green-500 p-2 border text-gray-900 bg-white ${validationErrors.subject ? 'border-red-500' : 'border-gray-300'}`} 
           />
           {validationErrors.subject && <p className="text-red-500 text-sm mt-1">{validationErrors.subject}</p>}
         </div>
         <div>
-          <label className="block text-sm font-medium text-gray-700">Correo Electrónico</label>
+          <label className="block text-sm font-medium text-gray-700">Email Address</label>
           <input 
             type="text" 
             name="email" 
             value={formData.email}
             onChange={handleInputChange}
-            className={`mt-1 block w-full rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500 p-2 border text-gray-900 bg-white ${validationErrors.email ? 'border-red-500' : 'border-gray-300'}`} 
+            className={`mt-1 block w-full rounded-md shadow-sm focus:border-green-500 focus:ring-green-500 p-2 border text-gray-900 bg-white ${validationErrors.email ? 'border-red-500' : 'border-gray-300'}`} 
           />
           {validationErrors.email && <p className="text-red-500 text-sm mt-1">{validationErrors.email}</p>}
         </div>
         <div>
-          <label className="block text-sm font-medium text-gray-700">Mensaje / Pedido</label>
+          <label className="block text-sm font-medium text-gray-700">Your Request / Requirements</label>
           <textarea 
             name="message" 
             value={formData.message}
             onChange={handleInputChange}
             rows="4" 
-            className={`mt-1 block w-full rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500 p-2 border text-gray-900 bg-white ${validationErrors.message ? 'border-red-500' : 'border-gray-300'}`}
+            className={`mt-1 block w-full rounded-md shadow-sm focus:border-green-500 focus:ring-green-500 p-2 border text-gray-900 bg-white ${validationErrors.message ? 'border-red-500' : 'border-gray-300'}`}
           ></textarea>
           {validationErrors.message && <p className="text-red-500 text-sm mt-1">{validationErrors.message}</p>}
         </div>
-        <button type="submit" className="w-full !bg-blue-600 !text-white py-3 px-4 rounded-md hover:!bg-blue-700 transition-colors font-bold" style={{ colorScheme: 'light' }}>
-          Enviar Mensaje
+        <button type="submit" className="w-full !bg-green-700 !text-white py-3 px-4 rounded-md hover:!bg-green-800 transition-colors font-bold" style={{ colorScheme: 'light' }}>
+          Submit Request
         </button>
         {result && (
-          <div className={`mt-4 p-4 rounded-lg text-center font-semibold text-base ${result.includes('éxito') ? 'bg-green-50 text-green-800 border-2 border-green-200' : 'bg-red-50 text-red-800 border-2 border-red-200'}`}>
+          <div className={`mt-4 p-4 rounded-lg text-center font-semibold text-base ${result.includes('successfully') ? 'bg-green-50 text-green-800 border-2 border-green-200' : 'bg-red-50 text-red-800 border-2 border-red-200'}`}>
             {result}
           </div>
         )}
@@ -133,16 +133,16 @@ export default function ContactForm() {
       {showModal && (
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
           <div className="bg-white rounded-2xl shadow-2xl max-w-md w-full p-8 max-h-[90vh] overflow-y-auto">
-            <h2 className="text-2xl font-black text-red-900 mb-6 uppercase tracking-tight">Confirmación Importante</h2>
+            <h2 className="text-2xl font-black text-yellow-900 mb-6 uppercase tracking-tight">Important Confirmation</h2>
             
-            <div className="bg-red-50 border-2 border-red-200 rounded-xl p-5 mb-6">
-              <p className="text-sm text-red-900 font-semibold leading-relaxed mb-4">
-                Confirma que entiendes la siguiente información sobre nuestros productos:
+            <div className="bg-yellow-50 border-2 border-yellow-200 rounded-xl p-5 mb-6">
+              <p className="text-sm text-yellow-900 font-semibold leading-relaxed mb-4">
+                Please confirm you understand this important information about our products:
               </p>
-              <ul className="space-y-3 text-sm text-red-800 font-medium">
-                <li>✓ Los productos tienen <span className="font-bold">fecha de vencimiento expirada</span></li>
-                <li>✓ Solo se utilizarán con <span className="font-bold">propósitos educativos y de demostración</span></li>
-                <li>✓ <span className="font-bold">NO</span> serán utilizados en pacientes o clínicamente</li>
+              <ul className="space-y-3 text-sm text-yellow-800 font-medium">
+                <li>✓ Products have <span className="font-bold">expired dates</span></li>
+                <li>✓ Will only be used for <span className="font-bold">educational and demonstration purposes</span></li>
+                <li>✓ <span className="font-bold">NOT</span> authorized for patient or clinical use</li>
               </ul>
             </div>
 
@@ -157,10 +157,10 @@ export default function ContactForm() {
                     setValidationErrors(prev => ({ ...prev, checkbox: "" }));
                   }
                 }}
-                className="mt-1 w-5 h-5 cursor-pointer accent-blue-600"
+                className="mt-1 w-5 h-5 cursor-pointer accent-green-700"
               />
               <label htmlFor="agree" className="text-sm text-gray-700 font-medium cursor-pointer">
-                Confirmo que he leído y acepto que los productos son solo para uso educativo y de demostración.
+                I confirm that I've read and understand that products are for educational and demonstration use only.
               </label>
             </div>
             {validationErrors.checkbox && <p className="text-red-600 text-sm mb-6 font-semibold bg-red-50 p-3 rounded-lg">{validationErrors.checkbox}</p>}
@@ -174,13 +174,13 @@ export default function ContactForm() {
                 }}
                 className="flex-1 px-4 py-3 bg-gray-700 text-white rounded-lg font-bold hover:bg-gray-800 transition-colors"
               >
-                Cancelar
+                Cancel
               </button>
               <button
                 onClick={handleConfirmSubmit}
-                className="flex-1 px-4 py-3 bg-blue-600 text-white rounded-lg font-bold hover:bg-blue-700 transition-colors"
+                className="flex-1 px-4 py-3 bg-green-700 text-white rounded-lg font-bold hover:bg-green-800 transition-colors"
               >
-                Enviar Mensaje
+                Send Request
               </button>
             </div>
           </div>

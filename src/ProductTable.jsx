@@ -13,23 +13,23 @@ export default function ProductTable({ data }) {
   const [filtering, setFiltering] = useState('');
 
   const columns = useMemo(() => [
-    { header: 'Marca', accessorKey: 'brand' },
-    { header: 'Descripción', accessorKey: 'description' },
-    { header: 'Medida', accessorKey: 'size' },
-    { header: 'Referencia', accessorKey: 'reference' },
+    { header: 'Brand', accessorKey: 'brand' },
+    { header: 'Description', accessorKey: 'description' },
+    { header: 'Size', accessorKey: 'size' },
+    { header: 'Reference', accessorKey: 'reference' },
     { 
-      header: 'Estado', 
+      header: 'Status', 
       accessorKey: 'availability',
       cell: (info) => {
         const value = info.getValue();
-        let displayText = 'Consultar';
-        let colorClass = 'text-blue-600';
+        let displayText = 'Inquire';
+        let colorClass = 'text-green-600';
         
         if (value === 'In Stock') {
-          displayText = 'Disponible';
+          displayText = 'In Stock';
           colorClass = 'text-green-600';
         } else if (value === 'Out of Stock') {
-          displayText = 'Agotado';
+          displayText = 'Out of Stock';
           colorClass = 'text-red-500';
         }
         
@@ -53,8 +53,8 @@ export default function ProductTable({ data }) {
   const exportToExcel = () => {
     const worksheet = XLSX.utils.json_to_sheet(data);
     const workbook = XLSX.utils.book_new();
-    XLSX.utils.book_append_sheet(workbook, worksheet, "Catálogo");
-    XLSX.writeFile(workbook, "Catalogo_Suministros_Medicos.xlsx");
+    XLSX.utils.book_append_sheet(workbook, worksheet, "Catalog");
+    XLSX.writeFile(workbook, "Medical_Supplies_Catalog.xlsx");
   };
 
   return (
@@ -65,8 +65,8 @@ export default function ProductTable({ data }) {
           <input
             value={filtering}
             onChange={e => setFiltering(e.target.value)}
-            placeholder="Buscar en miles de productos..."
-            className="w-full pl-10 pr-4 py-3 rounded-xl border border-gray-300 bg-white text-gray-900 placeholder-gray-500 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none shadow-sm transition-all"
+            placeholder="Search thousands of products..."
+            className="w-full pl-10 pr-4 py-3 rounded-xl border border-gray-300 bg-white text-gray-900 placeholder-gray-500 focus:ring-2 focus:ring-green-500 focus:border-green-500 outline-none shadow-sm transition-all"
           />
           <span className="absolute left-3 top-3.5 text-gray-400 pointer-events-none">🔍</span>
         </div>
@@ -74,20 +74,20 @@ export default function ProductTable({ data }) {
         {/* Export Button */}
         <button 
           onClick={exportToExcel}
-          className="!bg-green-600 !text-white px-6 py-3 rounded-xl font-bold text-sm hover:!bg-green-700 transition-all shadow-md flex items-center gap-2"
+          className="!bg-green-700 !text-white px-6 py-3 rounded-xl font-bold text-sm hover:!bg-green-800 transition-all shadow-md flex items-center gap-2"
           style={{ colorScheme: 'light' }}
         >
-          📥 Descargar Excel (.xlsx)
+          📥 Download Excel (.xlsx)
         </button>
       </div>
 
       <div className="overflow-x-auto rounded-2xl border border-gray-100 shadow-sm bg-white">
         <table className="w-full text-left">
-          <thead className="bg-gray-50 text-blue-900 border-b">
+          <thead className="bg-gray-50 text-green-900 border-b">
             {table.getHeaderGroups().map(headerGroup => (
               <tr key={headerGroup.id}>
                 {headerGroup.headers.map(header => (
-                  <th key={header.id} className="px-6 py-5 text-sm font-black uppercase tracking-tighter text-blue-900 bg-blue-50/50">
+                  <th key={header.id} className="px-6 py-5 text-sm font-black uppercase tracking-tighter text-green-900 bg-green-50/50">
                         {flexRender(header.column.columnDef.header, header.getContext())}
                     </th>
                 ))}
@@ -96,7 +96,7 @@ export default function ProductTable({ data }) {
           </thead>
           <tbody className="divide-y divide-gray-50">
             {table.getRowModel().rows.map(row => (
-              <tr key={row.id} className="hover:bg-blue-50/50 transition-colors">
+              <tr key={row.id} className="hover:bg-green-50/50 transition-colors">
                 {row.getVisibleCells().map(cell => (
                   <td key={cell.id} className="px-6 py-4 text-sm text-gray-700">
                     {flexRender(cell.column.columnDef.cell, cell.getContext())}
@@ -145,11 +145,11 @@ export default function ProductTable({ data }) {
                 </button>
             </div>
             
-            <div className="flex items-center gap-2 bg-blue-50 px-6 py-3 rounded-2xl border border-blue-100 shadow-sm">
-                <span className="text-sm font-medium text-blue-900">Página</span>
-                <span className="text-lg font-black text-blue-700">{table.getState().pagination.pageIndex + 1}</span>
-                <span className="text-sm font-medium text-blue-900">de</span>
-                <span className="text-lg font-black text-blue-700">{table.getPageCount()}</span>
+            <div className="flex items-center gap-2 bg-green-50 px-6 py-3 rounded-2xl border border-green-100 shadow-sm">
+                <span className="text-sm font-medium text-green-900">Page</span>
+                <span className="text-lg font-black text-green-700">{table.getState().pagination.pageIndex + 1}</span>
+                <span className="text-sm font-medium text-green-900">of</span>
+                <span className="text-lg font-black text-green-700">{table.getPageCount()}</span>
             </div>
             </div>
     </div>

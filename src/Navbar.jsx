@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 
 const useIntersectionObserver = (sectionIds) => {
-  const [activeSection, setActiveSection] = useState('inicio');
+  const [activeSection, setActiveSection] = useState('home');
   const observerRef = useRef(null);
 
   useEffect(() => {
@@ -38,48 +38,48 @@ const useIntersectionObserver = (sectionIds) => {
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const sectionIds = ['inicio', 'negocio', 'productos', 'contacto'];
+  const sectionIds = ['home', 'about', 'catalog', 'quote'];
   const activeSection = useIntersectionObserver(sectionIds);
 
   const navLinks = [
-    { label: 'Inicio', id: 'inicio' },
-    { label: 'Empresa', id: 'negocio' },
-    { label: 'Productos', id: 'productos' },
+    { label: 'Home', id: 'home' },
+    { label: 'About', id: 'about' },
+    { label: 'Catalog', id: 'catalog' },
   ];
 
   return (
-    <nav className="bg-white border-b border-gray-100 shadow-sm sticky top-0 z-50">
+    <nav className="bg-white border-b border-gray-300 shadow-sm sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           
           {/* Brand Name */}
-          <div className="flex-shrink-0 text-lg md:text-xl font-bold text-blue-900 tracking-tight">
-            Suministros Médicos <span className="text-blue-600 font-light">de Confianza</span>
+          <div className="flex-shrink-0 text-lg md:text-xl font-bold text-gray-800 tracking-tight">
+            PREPPER'S<span className="text-green-700 font-black"> MEDICAL</span>
           </div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-10">
-            <ul className="flex space-x-8 text-sm font-semibold text-blue-900">
+            <ul className="flex space-x-8 text-sm font-semibold text-gray-800">
               {navLinks.map((link) => (
                 <li key={link.id}>
                   <a 
                     href={`#${link.id}`} 
                     className={`transition-all duration-300 relative group 
-                      ${activeSection === link.id ? 'text-blue-600' : 'text-blue-950/80 hover:text-blue-600'}`}
+                      ${activeSection === link.id ? 'text-green-700' : 'text-gray-600 hover:text-green-700'}`}
                   >
                     {link.label}
-                    <span className={`absolute -bottom-1 left-0 h-0.5 bg-blue-600 transition-all duration-300
+                    <span className={`absolute -bottom-1 left-0 h-0.5 bg-green-700 transition-all duration-300
                       ${activeSection === link.id ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
                   </a>
                 </li>
               ))}
             </ul>
             <a 
-              href="#contacto" 
+              href="#quote" 
               className={`border-2 px-5 py-2 rounded-full text-sm font-bold transition-all duration-500
-                ${activeSection === 'contacto' ? 'bg-blue-900 text-white border-blue-900' : 'bg-white text-blue-900 border-blue-900 hover:bg-blue-50'}`}
+                ${activeSection === 'quote' ? 'bg-green-700 text-white border-green-700' : 'bg-white text-green-700 border-green-700 hover:bg-green-50'}`}
             >
-              Cotizar
+              Quote
             </a>
           </div>
 
@@ -87,7 +87,7 @@ export default function Navbar() {
           <div className="md:hidden flex items-center">
             <button 
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="p-2 rounded-md bg-blue-900 text-white border border-blue-900 outline-none"
+              className="p-2 rounded-md bg-green-700 text-white border border-green-700 outline-none"
             >
               {/* Explicitly defined Hamburger/X Icon */}
               <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -110,18 +110,18 @@ export default function Navbar() {
                 key={link.id}
                 href={`#${link.id}`}
                 onClick={() => setIsMenuOpen(false)}
-                className={`block px-4 py-4 text-base font-bold rounded-xl ${activeSection === link.id ? 'text-blue-600 bg-blue-50' : 'text-gray-700'}`}
+                className={`block px-4 py-4 text-base font-bold rounded-xl ${activeSection === link.id ? 'text-green-700 bg-green-50' : 'text-gray-700'}`}
               >
                 {link.label}
               </a>
             ))}
             <div className="pt-4 px-2">
               <a
-                href="#contacto"
+                href="#quote"
                 onClick={() => setIsMenuOpen(false)}
-                className="block w-full text-center bg-blue-900 text-white !text-white px-5 py-4 rounded-2xl font-black shadow-lg shadow-blue-900/20 uppercase tracking-widest text-xs"
+                className="block w-full text-center bg-green-700 text-white !text-white px-5 py-4 rounded-2xl font-black shadow-lg shadow-green-700/20 uppercase tracking-widest text-xs"
               >
-                Cotizar Ahora
+                Request Quote
               </a>
             </div>
           </div>
