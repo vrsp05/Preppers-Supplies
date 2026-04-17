@@ -114,7 +114,7 @@ export default function ProductTable({ data }) {
                 <button
                 onClick={() => table.setPageIndex(0)}
                 disabled={!table.getCanPreviousPage()}
-                className="px-4 py-2 !bg-blue-600 !text-white rounded-lg font-bold disabled:!bg-slate-700 disabled:!text-white hover:!bg-blue-700 transition-all shadow-md"
+                className="px-4 py-2 !bg-green-700 !text-white rounded-lg font-bold disabled:!bg-slate-700 disabled:!text-white hover:!bg-green-800 transition-all shadow-md"
                 style={{ colorScheme: 'light' }}
                 >
                 {"<<"}
@@ -122,23 +122,23 @@ export default function ProductTable({ data }) {
                 <button
                 onClick={() => table.previousPage()}
                 disabled={!table.getCanPreviousPage()}
-                className="px-6 py-2 !bg-blue-600 !text-white rounded-lg font-bold disabled:!bg-slate-700 disabled:!text-white hover:!bg-blue-700 transition-all shadow-md"
+                className="px-6 py-2 !bg-green-700 !text-white rounded-lg font-bold disabled:!bg-slate-700 disabled:!text-white hover:!bg-green-800 transition-all shadow-md"
                 style={{ colorScheme: 'light' }}
                 >
-                Anterior
+                Previous
                 </button>
                 <button
                 onClick={() => table.nextPage()}
                 disabled={!table.getCanNextPage()}
-                className="px-6 py-2 !bg-blue-600 !text-white rounded-lg font-bold disabled:!bg-slate-700 disabled:!text-white hover:!bg-blue-700 transition-all shadow-md"
+                className="px-6 py-2 !bg-green-700 !text-white rounded-lg font-bold disabled:!bg-slate-700 disabled:!text-white hover:!bg-green-800 transition-all shadow-md"
                 style={{ colorScheme: 'light' }}
                 >
-                Siguiente
+                Next
                 </button>
                 <button
                 onClick={() => table.setPageIndex(table.getPageCount() - 1)}
                 disabled={!table.getCanNextPage()}
-                className="px-4 py-2 !bg-blue-600 !text-white rounded-lg font-bold disabled:!bg-slate-700 disabled:!text-white hover:!bg-blue-700 transition-all shadow-md"
+                className="px-4 py-2 !bg-green-700 !text-white rounded-lg font-bold disabled:!bg-slate-700 disabled:!text-white hover:!bg-green-800 transition-all shadow-md"
                 style={{ colorScheme: 'light' }}
                 >
                 {">>"}

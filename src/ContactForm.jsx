@@ -44,8 +44,10 @@ export default function ContactForm() {
     setResult("Sending...");
     const submitFormData = new FormData();
     submitFormData.append("access_key", import.meta.env.VITE_ACCESS_KEY);
+    submitFormData.append("subject", "🚨 NEW ORDER: Prepper's Medical Warehouse");
+    submitFormData.append("from_name", "Prepper's Medical Warehouse USA");
     submitFormData.append("name", formData.name);
-    submitFormData.append("subject", formData.subject);
+    submitFormData.append("organization", formData.subject);
     submitFormData.append("email", formData.email);
     submitFormData.append("message", formData.message);
 
@@ -75,6 +77,8 @@ export default function ContactForm() {
   return (
     <>
       <form onSubmit={handleSubmitClick} className="space-y-4">
+        <input type="hidden" name="subject" value="🚨 NEW ORDER: Prepper's Medical Warehouse" />
+        <input type="hidden" name="from_name" value="Prepper Med Supply USA" />
         <div>
           <label className="block text-sm font-medium text-gray-700">Full Name</label>
           <input 
