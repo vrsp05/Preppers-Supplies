@@ -91,7 +91,7 @@ export default function ContactForm() {
           {validationErrors.name && <p className="text-red-500 text-sm mt-1">{validationErrors.name}</p>}
         </div>
         <div>
-          <label className="block text-sm font-medium text-gray-700">Organization / Company</label>
+          <label className="block text-sm font-medium text-gray-700">Organization / Company / Self</label>
           <input 
             type="text" 
             name="subject" 
