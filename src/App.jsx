@@ -117,7 +117,8 @@ function App() {
               <button
                 onClick={fetchProducts}
                 disabled={loading}
-                className="px-4 py-2 bg-blue-600 text-white rounded-lg font-semibold text-sm hover:bg-blue-700 transition-colors disabled:bg-gray-400 disabled:cursor-not-allowed"
+                className="px-4 py-2 !bg-blue-600 !text-white rounded-lg font-semibold text-sm hover:!bg-blue-700 transition-colors disabled:!bg-slate-700 disabled:!text-white disabled:cursor-not-allowed"
+                style={{ colorScheme: 'light' }}
               >
                 🔄 Actualizar
               </button>

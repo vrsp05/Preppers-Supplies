@@ -119,7 +119,7 @@ export default function ContactForm() {
           ></textarea>
           {validationErrors.message && <p className="text-red-500 text-sm mt-1">{validationErrors.message}</p>}
         </div>
-        <button type="submit" className="w-full bg-blue-600 text-white py-3 px-4 rounded-md hover:bg-blue-700 transition-colors font-bold">
+        <button type="submit" className="w-full !bg-blue-600 !text-white py-3 px-4 rounded-md hover:!bg-blue-700 transition-colors font-bold" style={{ colorScheme: 'light' }}>
           Enviar Mensaje
         </button>
         {result && (
