@@ -1,12 +1,12 @@
-# Jason James - Medical Supplies of Quality
+# Trustworth Medical Supplies
 
-Welcome to the digital platform of **Jason James - Medical Supplies of Quality**, an innovative project designed to facilitate access to high-quality medical products.
+Welcome to the digital platform of **Trustworthy Medical Supplies**, an innovative project designed to facilitate access to high-quality medical products.
 
 > If you want to see the real website, [click here](https://sumin-med-de-conf.netlify.app/)
 
 ## Project Description
 
-This web application was specially developed for Dr. Jason James, an outstanding healthcare professional committed to providing excellent medical supply solutions for healthcare institutions and medical professionals. The platform offers:
+This web application was specially developed for my father-in-law, an outstanding healthcare professional committed to providing excellent medical supply solutions for healthcare institutions and medical professionals. The platform offers:
 
 - **Product Catalog**: An interactive and comprehensive table of medical supplies with detailed information for each item
 - **Contact Form**: Integrated contact system for inquiries, orders, and personalized attention
@@ -44,7 +44,7 @@ All rights reserved © 2026 Medical Supplies of Confidence.
 ## Contact & Credits
 
 **Website Created For:**  
-Dr. Jason James  
+My father-in-law  
 
 **Developed By:**  
 [Victor Santana](https://github.com/vrsp05)
