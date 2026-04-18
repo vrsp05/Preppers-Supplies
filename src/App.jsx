@@ -44,6 +44,7 @@ function App() {
         <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)] -z-10"></div>
         
         <div className="max-w-5xl mx-auto text-center">
+          <img src="/Global Med Readiness Log no-BG.png" alt="Global Med Readiness Logo" className="h-56 w-auto mx-auto mb-8" />
           <h1 className="text-5xl md:text-6xl font-black text-gray-900 mb-6 tracking-tight">
             Prepper's Medical <span className="text-green-700 font-black">Warehouse</span>
           </h1>

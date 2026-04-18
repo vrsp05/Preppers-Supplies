@@ -53,8 +53,11 @@ export default function Navbar() {
         <div className="flex justify-between items-center h-20">
           
           {/* Brand Name */}
-          <div className="flex-shrink-0 text-lg md:text-xl font-bold text-gray-800 tracking-tight">
-            PREPPER'S<span className="text-green-700 font-black"> MEDICAL</span>
+          <div className="flex-shrink-0 flex items-center gap-3">
+            <img src="/Global Med Readiness Log no-BG.png" alt="Global Med Readiness Logo" className="h-12 w-auto" />
+            <span className="text-lg md:text-xl font-bold text-gray-800 tracking-tight">
+              PREPPER'S<span className="text-green-700 font-black"> MEDICAL</span>
+            </span>
           </div>
 
           {/* Desktop Navigation */}
