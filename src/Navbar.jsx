@@ -54,7 +54,7 @@ export default function Navbar() {
           
           {/* Brand Name */}
           <div className="flex-shrink-0 flex items-center gap-3">
-            <img src="/Global Med Readiness Log no-BG.png" alt="Global Med Readiness Logo" className="h-12 w-auto" />
+            <img src="./Global Med Readiness Log no-BG.png" alt="Global Med Readiness Logo" className="h-12 w-auto" />
             <span className="text-lg md:text-xl font-bold text-gray-800 tracking-tight">
               PREPPER'S<span className="text-green-700 font-black"> MEDICAL</span>
             </span>
